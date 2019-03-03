@@ -36,8 +36,9 @@ struct rational
  }
 class double_stack{
 private:
-    int mass[N]; // ïåðåìåííûé ðàçìåð
-    rational first;
+    rational mass[N]; // ïåðåìåííûé ðàçìåð
+    rational* first;
+    rational* top;
 public:
     double_stack();
     int get_first();
@@ -49,6 +50,15 @@ public:
  double_stack::double_stack()
  {
      this->set_first(-1);// ïåðâîãî ýëåìåíòà òèïà íå ñóùåñòâóåò (åãî íîìåð - -1)
+ }
+double_stack(const double_stack& s)
+ {
+     this->N=s.size;
+     this->mass=new [s.size];
+     this->top=mass;
+     rational *p=s.mass;
+     while(p<s.top)
+        *top++=*p++;
  }
  int double_stack::set_first(int a)
  {
