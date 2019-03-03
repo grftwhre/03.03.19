@@ -36,8 +36,8 @@ struct rational
  }
 class double_stack{
 private:
-    int mass[N]; // ïåðåìåííûé ðàçìåð
-    rational first_a;
+    int mass[N]; // Ã¯Ã¥Ã°Ã¥Ã¬Ã¥Ã­Ã­Ã»Ã© Ã°Ã Ã§Ã¬Ã¥Ã°
+    rational first;
 public:
     double_stack();
     int get_first();
@@ -48,7 +48,7 @@ public:
  };
  double_stack::double_stack()
  {
-     this->set_first(-1);// ïåðâîãî ýëåìåíòà òèïà íå ñóùåñòâóåò (åãî íîìåð - -1)
+     this->set_first(-1);// Ã¯Ã¥Ã°Ã¢Ã®Ã£Ã® Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã  Ã²Ã¨Ã¯Ã  Ã­Ã¥ Ã±Ã³Ã¹Ã¥Ã±Ã²Ã¢Ã³Ã¥Ã² (Ã¥Ã£Ã® Ã­Ã®Ã¬Ã¥Ã° - -1)
  }
  int double_stack::set_first(int a)
  {
@@ -67,15 +67,15 @@ int double_stack::get_first()
  int double_stack::push(int a)
  {
      if (this->get_first()>N-1)
-        return -1; //åñëè íîìåð ýëåìåíòà - N-1 òî ñòåê ïåðåïîëíåí
-     this->set_first(this->get_first()+1); //ïîâûñèëè êîëè÷åñòâî ýëåìåíòîâ íà 1
+        return -1; //Ã¥Ã±Ã«Ã¨ Ã­Ã®Ã¬Ã¥Ã° Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã  - N-1 Ã²Ã® Ã±Ã²Ã¥Ãª Ã¯Ã¥Ã°Ã¥Ã¯Ã®Ã«Ã­Ã¥Ã­
+     this->set_first(this->get_first()+1); //Ã¯Ã®Ã¢Ã»Ã±Ã¨Ã«Ã¨ ÃªÃ®Ã«Ã¨Ã·Ã¥Ã±Ã²Ã¢Ã® Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã®Ã¢ Ã­Ã  1
      this->mass[this->get_first()]=a;
-     return 1; //åñëè âîçâðàùåíà 1 òî ìû ñïðàâèëèñü
+     return 1; //Ã¥Ã±Ã«Ã¨ Ã¢Ã®Ã§Ã¢Ã°Ã Ã¹Ã¥Ã­Ã  1 Ã²Ã® Ã¬Ã» Ã±Ã¯Ã°Ã Ã¢Ã¨Ã«Ã¨Ã±Ã¼
  }
  int double_stack::pop(int a)
  {
-     if (this->get_first()==-1) //åñëè íîìåð  ïåðâîãî ýëåìåíòà -1 òî ïî îïðåäåëåíèþ ñòåê ïóñòîé
+     if (this->get_first()==-1) //Ã¥Ã±Ã«Ã¨ Ã­Ã®Ã¬Ã¥Ã°  Ã¯Ã¥Ã°Ã¢Ã®Ã£Ã® Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã  -1 Ã²Ã® Ã¯Ã® Ã®Ã¯Ã°Ã¥Ã¤Ã¥Ã«Ã¥Ã­Ã¨Ã¾ Ã±Ã²Ã¥Ãª Ã¯Ã³Ã±Ã²Ã®Ã©
         return -1;
-     this->get_first(this->set_first()-1); //óìåíüøàåì íîìåð ïåðâîãî ýëåìåíòà
-     return this->mass[this->get_first()+1]; //âîçâðàùåíèå ïåðâîãî ýëåìåíòà
+     this->get_first(this->set_first()-1); //Ã³Ã¬Ã¥Ã­Ã¼Ã¸Ã Ã¥Ã¬ Ã­Ã®Ã¬Ã¥Ã° Ã¯Ã¥Ã°Ã¢Ã®Ã£Ã® Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã 
+     return this->mass[this->get_first()+1]; //Ã¢Ã®Ã§Ã¢Ã°Ã Ã¹Ã¥Ã­Ã¨Ã¥ Ã¯Ã¥Ã°Ã¢Ã®Ã£Ã® Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã 
  }
